@@ -3,8 +3,15 @@
  */
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Card, GridTile} from "material-ui";
+import {Card, GridTile, Paper} from "material-ui";
 import pizzicato from 'pizzicato'
+const style = {
+
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+    backgroundColor: ''
+};
 
 class SoundCard extends Component {
 
@@ -61,6 +68,7 @@ class SoundCard extends Component {
     render() {
         return (
             <GridTile>
+                <Paper style={style} zDepth={2}>
                 <div> <div>vol: { this.state.sineWave.volume.toFixed(2)} freq: { this.state.sineWave.frequency.toFixed(2)}</div>
                     vol<RaisedButton  onClick={this.handleVolumeUp}>+</RaisedButton>
                     <RaisedButton onClick={this.handleVolumeDown}> - </RaisedButton>
@@ -74,6 +82,7 @@ class SoundCard extends Component {
 
                     <RaisedButton onClick={this.handleStopSound} >STOP</RaisedButton>
                 </div>
+                </Paper>
             </GridTile>
         );
     }

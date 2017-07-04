@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardHeader, CardText, CardTitle, GridList, MuiThemeProvider} from "material-ui";
 import SoundCard from './SoundCard';
 import Metronome from './Metronome.js'
+import Launchpad from "./Launchpad";
 
 class App extends Component {
 
@@ -43,16 +44,6 @@ class App extends Component {
     };
 
 
-    startMetronome = () => {
-        this.setState({play: true});
-        console.log('this.state.play', this.state.play)
-    };
-
-    stopMetronome = () => {
-        this.setState({play: false});
-        console.log('this.state.play', this.state.play)
-    };
-
     render() {
         const soundCard = this.renderSoundCards();
         return (
@@ -83,6 +74,9 @@ class App extends Component {
                             </GridList>
                         </Card>
 
+                    </Card>
+                    <Card>
+                        <Launchpad/>
                     </Card>
                 </div>
 

@@ -19,6 +19,7 @@ class Metronome extends Component {
 
         this.state = {
             sineWave: sineWave,
+            timerId: null
         };
     }
 
@@ -33,7 +34,7 @@ class Metronome extends Component {
         this.runMetronome();
     };
 
-    handleStop = () => {
+    stopMetronome = () => {
         const {timerId} = this.state;
         clearInterval(timerId);
     };
@@ -61,7 +62,7 @@ class Metronome extends Component {
                 Metronome running at {this.props.tempo} BPM
                 <div><TextField hintText="100" onChange={this.handleChangeTempo}/>
                     <RaisedButton onClick={this.runMetronome}>Run</RaisedButton>
-                    <RaisedButton onClick={this.handleStop}>Stop</RaisedButton>
+                    <RaisedButton onClick={this.stopMetronome}>Stop</RaisedButton>
 
                 </div>
             </ div >
