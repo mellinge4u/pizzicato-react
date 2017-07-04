@@ -41,7 +41,7 @@ class App extends Component {
     changeTempo = (tmpo) => {
         this.setState({tempo: tmpo});
     };
-    
+
 
     startMetronome = () => {
         this.setState({play: true});
@@ -65,7 +65,7 @@ class App extends Component {
                             avatar=""
                         />
                         <Metronome changeTempo={this.changeTempo} tempo={this.state.tempo} play={this.state.play}
-                                   startMetronome={this.startMetronome} stopMetronome={this.stopMetronome}/>
+                        />
                         <CardTitle title="Play With Sound" subtitle="Sound Card Dashboard"/>
                         <CardText>
                             Add a SoundCard to test sound, modify volume and frequency.

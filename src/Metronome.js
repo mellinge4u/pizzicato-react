@@ -34,26 +34,25 @@ class Metronome extends Component {
     };
 
     handleStop = () => {
-        this.props.stopMetronome();
+        const {timerId} = this.state;
+        clearInterval(timerId);
     };
 
     runMetronome = () => {
-        if (this.props.play) {
-           const timer = setInterval(() => {
-                    this.state.sineWave.play();
-                    setTimeout(() => {
-                        this.state.sineWave.stop();
-                        if (!this.props.play) {clearInterval(timer)}
-                    }, 100);
+        const timerId = setInterval(() => {
+                this.state.sineWave.play();
+                setTimeout(() => {
+                    this.state.sineWave.stop();
+                }, 100);
 
-                    console.log('tic')
-                }
-                ,
+                console.log('tic')
+            }
+            ,
                 60000. / parseInt(this.props.tempo)
             )
-            ;
-            console.log(60000. / parseInt(this.props.tempo))
-        }
+        ;
+        console.log(60000. / parseInt(this.props.tempo))
+        this.setState({timerId :timerId})
     };
 
     render() {
@@ -61,7 +60,7 @@ class Metronome extends Component {
             <div>
                 Metronome running at {this.props.tempo} BPM
                 <div><TextField hintText="100" onChange={this.handleChangeTempo}/>
-                    <RaisedButton onClick={this.handleStart}>Run</RaisedButton>
+                    <RaisedButton onClick={this.runMetronome}>Run</RaisedButton>
                     <RaisedButton onClick={this.handleStop}>Stop</RaisedButton>
 
                 </div>
