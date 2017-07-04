@@ -2,7 +2,7 @@
  * Created by erwan.mellinger on 30/06/2017.
  */
 import React, {Component} from 'react';
-import pizzicato from 'pizzicato'
+import pizzicato from 'pizzicato';
 import {RaisedButton, TextField} from "material-ui";
 
 class Metronome extends Component {
@@ -29,18 +29,17 @@ class Metronome extends Component {
     };
 
     handleStart = () => {
-        this.props.changePlay(true);
+        this.props.startMetronome();
         this.runMetronome();
     };
 
     handleStop = () => {
-        clearInterval();
-        this.props.changePlay(false);
+        this.props.stopMetronome();
     };
 
     runMetronome = () => {
         if (this.props.play) {
-           const timer = setInterval((e) => {
+           const timer = setInterval(() => {
                     this.state.sineWave.play();
                     setTimeout(() => {
                         this.state.sineWave.stop();

@@ -41,14 +41,20 @@ class App extends Component {
     changeTempo = (tmpo) => {
         this.setState({tempo: tmpo});
     };
+    
 
-    changePlay = (bool) => {
-        this.setState({play: bool});
-        console.log('this.state.play',this.state.play)
+    startMetronome = () => {
+        this.setState({play: true});
+        console.log('this.state.play', this.state.play)
+    };
+
+    stopMetronome = () => {
+        this.setState({play: false});
+        console.log('this.state.play', this.state.play)
     };
 
     render() {
-        const render = this.renderSoundCards();
+        const soundCard = this.renderSoundCards();
         return (
             <MuiThemeProvider>
                 <div className="App">
@@ -58,7 +64,8 @@ class App extends Component {
                             subtitle="Pizzicato test sound"
                             avatar=""
                         />
-                        <Metronome changeTempo={this.changeTempo} tempo={this.state.tempo} play={this.state.play} changePlay={this.changePlay}/>
+                        <Metronome changeTempo={this.changeTempo} tempo={this.state.tempo} play={this.state.play}
+                                   startMetronome={this.startMetronome} stopMetronome={this.stopMetronome}/>
                         <CardTitle title="Play With Sound" subtitle="Sound Card Dashboard"/>
                         <CardText>
                             Add a SoundCard to test sound, modify volume and frequency.
@@ -72,7 +79,7 @@ class App extends Component {
                             <GridList
                                 cellHeight={200}
                                 cols={3}>
-                                {render}
+                                {soundCard}
                             </GridList>
                         </Card>
 
