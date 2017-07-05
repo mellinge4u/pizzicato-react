@@ -32,7 +32,7 @@ class Key extends Component {
 
     render() {
         return (
-            <RaisedButton style={style} onMouseDown={this.handleSound} onMouseUp={this.handleStop} onmouseleave={this.handleStop} backgroundColor= 'lightblue' />
+            <RaisedButton style={style} onMouseDown={this.handleSound} onMouseUp={this.handleStop} onMouseLeave={this.handleStop} backgroundColor= 'lightblue' />
         );
 
     }

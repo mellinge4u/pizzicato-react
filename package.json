@@ -6,7 +6,10 @@
     "material-ui": "^0.18.5",
     "pizzicato": "^0.6.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-motion": "^0.5.0",
+    "react-swipeable-views": "^0.12.3",
+    "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.8"
