@@ -33,15 +33,20 @@ class Launchpad extends Component {
     }
 
     initKeys() {
-        const sineWave = new pizzicato.Sound({
-            source: 'wave',
-            options: {
-                frequency: 261.63
-            }
-        });
+
+        const makeGamme= (n)=>{
+            return (261.63) * (Math.pow(2,n/12))
+        };
+        console.log('freq', makeGamme(1));
         for (let i = 0; i < 16; i++) {
+            const sineWave = new pizzicato.Sound({
+                source: 'wave',
+                options: {
+                    frequency: makeGamme(i)
+                }
+            });
             const newTab = this.state.keys;
-            newTab.push(<Key key={i} sineWave={sineWave}/>);
+            newTab.push(<Key key={i} sineWave={sineWave} />);
             this.setState({keys: newTab});
         }
     }

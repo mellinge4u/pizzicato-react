@@ -12,19 +12,27 @@ const style = {
 
 class Key extends Component {
 
+    constructor(props){
+        super(props);
+        const sineWave = this.props.sineWave;
+        this.state = {
+            sineWave : sineWave
+        }
+    }
+
     handleSound = () => {
-        this.props.sineWave.play();
+        this.state.sineWave.play();
         console.log('handlePress')
     };
 
     handleStop = () => {
-        this.props.sineWave.stop();
+        this.state.sineWave.stop();
         console.log('handleStop')
     };
 
     render() {
         return (
-            <RaisedButton style={style} onMouseDown={this.handleSound} onMouseUp={this.handleStop} backgroundColor= 'lightblue' />
+            <RaisedButton style={style} onMouseDown={this.handleSound} onMouseUp={this.handleStop} onmouseleave={this.handleStop} backgroundColor= 'lightblue' />
         );
 
     }
