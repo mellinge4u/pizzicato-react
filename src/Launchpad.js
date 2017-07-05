@@ -26,22 +26,22 @@ class Launchpad extends Component {
     constructor(props) {
         super(props);
 
+
+        this.state = {
+            keys: [],
+        }
+    }
+
+    initKeys() {
         const sineWave = new pizzicato.Sound({
             source: 'wave',
             options: {
                 frequency: 261.63
             }
         });
-        this.state = {
-            keys: [],
-            sineWave: sineWave
-        }
-    }
-
-    initKeys() {
         for (let i = 0; i < 16; i++) {
             const newTab = this.state.keys;
-            newTab.push(<Key/>);
+            newTab.push(<Key key={i} sineWave={sineWave}/>);
             this.setState({keys: newTab});
         }
     }

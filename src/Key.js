@@ -12,10 +12,19 @@ const style = {
 
 class Key extends Component {
 
+    handleSound = () => {
+        this.props.sineWave.play();
+        console.log('handlePress')
+    };
+
+    handleStop = () => {
+        this.props.sineWave.stop();
+        console.log('handleStop')
+    };
 
     render() {
         return (
-            <RaisedButton style={style}  backgroundColor= 'lightblue' />
+            <RaisedButton style={style} onMouseDown={this.handleSound} onMouseUp={this.handleStop} backgroundColor= 'lightblue' />
         );
 
     }
